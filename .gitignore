@@ -1,0 +1,6 @@
+#Compiled files
+*.hex
+*.elf
+
+#Vim files
+*.swp
