@@ -2,8 +2,8 @@
 #define BA 4
 #define B1 2
 #define B2 3
-const unsigned long T1 = 5000;
-const unsigned long T2 = 10000;
+#define T1 0x00001388 //5000 in hex
+#define T2 0x00002710 //10000 in hex
 #define MASK 0b11000111
 
 void setup() {
@@ -20,12 +20,12 @@ void loop() {
   uint8_t b1_history = 0;
   uint8_t b2_history = 0;
   uint8_t ba_history = 0;
-    
 
   while(1) {
     update_button(&b1_history, B1);
     update_button(&b2_history, B2);
     update_button(&ba_history, BA);
+
     if(is_button_pressed(&b1_history) || is_button_pressed(&b2_history)){
       Serial.print((unsigned long) 0 - is_button_down(&b1_history));
       sound_alarm_at = millis() + 
